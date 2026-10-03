@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wedding Reception at Sassoon House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFAF7; --shutter:#2F4A3A; --sage:#DDE5D8; --gold:#B09256; --ink:#27312B; --muted:#6C776F; --line:#C9D3C4;
+  --ja:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --en:"Cormorant Garamond","Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#18201B;--shutter:#9FBFA8;--sage:#253029;--gold:#CDB27A;--ink:#E8ECE6;--muted:#9AA69D;--line:#3A473F;}
+}
+:root[data-theme="dark"]{--paper:#18201B;--shutter:#9FBFA8;--sage:#253029;--gold:#CDB27A;--ink:#E8ECE6;--muted:#9AA69D;--line:#3A473F;}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:var(--ja);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.view{display:none;max-width:480px;margin:0 auto;min-height:100dvh}
+.view.active{display:block;animation:in .45s ease}
+@keyframes in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.view.active{animation:none}}
+
+/* ---------- 表紙 ---------- */
+#home{display:none;flex-direction:column;padding:20px 22px 28px}
+#home.active{display:flex}
+.hero{flex:1 1 55%;min-height:300px;position:relative;border-radius:999px 999px 6px 6px;overflow:hidden;background:var(--sage);border:1px solid var(--line)}
+.hero img{width:100%;height:100%;object-fit:cover}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--muted);font-size:14px;text-align:center;padding:20px}
+.ph svg{width:44px;opacity:.6}
+.title{text-align:center;margin:22px 0 18px}
+.title .en{font-family:var(--en);font-style:italic;font-size:30px;color:var(--shutter);line-height:1.1}
+.title .sub{font-size:13px;color:var(--muted);letter-spacing:.12em;margin-top:6px}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.door{appearance:none;border:1px solid var(--shutter);background:transparent;border-radius:80px 80px 4px 4px;padding:22px 10px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:background .2s}
+.door:active{background:var(--sage)}
+.door svg{width:44px;height:60px;color:var(--shutter)}
+.door .jp{font-size:18px;font-weight:600;letter-spacing:.2em;padding-left:.2em}
+.door .en{font-family:var(--en);font-style:italic;font-size:15px;color:var(--muted)}
+.hint{text-align:center;font-size:12px;color:var(--muted);margin-top:14px}
+
+/* ---------- 紹介ページ ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding:12px 18px;border-bottom:1px solid var(--line)}
+.back{appearance:none;background:none;border:0;padding:6px 4px;font-size:15px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:var(--shutter)}
+.back svg{width:16px}
+.profile{padding:26px 24px 48px}
+.portrait{width:62%;margin:0 auto;aspect-ratio:3/4;border-radius:999px 999px 4px 4px;overflow:hidden;background:var(--sage);border:1px solid var(--line);position:relative}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.role{text-align:center;margin-top:20px;font-size:13px;color:var(--gold);letter-spacing:.3em;padding-left:.3em}
+.name{text-align:center;font-size:28px;font-weight:600;margin:4px 0 0;letter-spacing:.08em}
+.name-en{text-align:center;font-family:var(--en);font-style:italic;font-size:18px;color:var(--muted)}
+.message{margin:22px 0 0;font-size:15px;line-height:2;text-align:center}
+h2{font-family:var(--en);font-style:italic;font-weight:500;font-size:24px;color:var(--shutter);margin:38px 0 12px;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--line)}
+dt,dd{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.7}
+dt{color:var(--muted);padding-right:22px;white-space:nowrap}
+dd{margin:0}
+.videos{display:grid;gap:18px}
+.clip figure{margin:0}
+.clip .frame{aspect-ratio:9/16;max-height:70vh;margin:0 auto;border-radius:6px;overflow:hidden;background:var(--sage);border:1px solid var(--line);position:relative}
+.clip video{width:100%;height:100%;object-fit:cover}
+.clip figcaption{font-size:14px;color:var(--muted);text-align:center;margin-top:8px}
+.foot{text-align:center;font-family:var(--en);font-style:italic;color:var(--muted);font-size:15px;margin-top:44px}
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<main id="home" class="view">
+  <div class="hero" id="heroImg"></div>
+  <div class="title">
+    <div class="en">Welcome to our wedding</div>
+    <div class="sub">旧サッスーン邸 にて</div>
+  </div>
+  <div class="doors">
+    <button class="door" data-go="groom" aria-label="新郎の紹介を見る">
+      <svg viewBox="0 0 44 60" fill="currentColor" aria-hidden="true"><circle cx="22" cy="9" r="8"/><path d="M8 22h28a4 4 0 0 1 4 4v14h-6v20h-8V44h-4v16h-8V40H4V26a4 4 0 0 1 4-4z"/><path d="M18 23l4 4 4-4" fill="none" stroke="var(--paper)" stroke-width="2"/></svg>
+      <span class="jp">新郎</span><span class="en">Groom</span>
+    </button>
+    <button class="door" data-go="bride" aria-label="新婦の紹介を見る">
+      <svg viewBox="0 0 44 60" fill="currentColor" aria-hidden="true"><circle cx="22" cy="9" r="8"/><path d="M16 21h12l3 12 10 27H3l10-27z"/></svg>
+      <span class="jp">新婦</span><span class="en">Bride</span>
+    </button>
+  </div>
+  <p class="hint">タップすると紹介ページが開きます</p>
+</main>
+
+<!-- ===== 紹介ページ（新郎・新婦 共通の器） ===== -->
+<section id="person" class="view">
+  <div class="bar"><button class="back" data-go="home"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5"/></svg>表紙に戻る</button></div>
+  <article class="profile" id="profile"></article>
+</section>
+
+<script>
+/* ============================================================
+   ここを書き換えるだけで中身が変わります
+   photo / video には後で実際の写真・動画を入れます
+   ============================================================ */
+const DATA = {
+  heroPhoto: "",  // 表紙の写真 or 似顔絵
+  groom: {
+    role: "新郎", name: "山田 太郎", nameEn: "Taro Yamada", photo: "",
+    message: "本日はお越しいただき\nありがとうございます",
+    facts: [
+      ["生年月日","1995年 4月 1日"],
+      ["出身地","兵庫県 神戸市"],
+      ["血液型","A型"],
+      ["趣味","ゴルフ・ランニング"],
+      ["特技","UFOキャッチャー"],
+      ["最近ハマっていること","ここに入ります"]
+    ],
+    videos: [
+      {src:"", caption:"ゴルフ中の一打"},
+      {src:"", caption:"UFOキャッチャーの腕前"}
+    ]
+  },
+  bride: {
+    role: "新婦", name: "山田 花子", nameEn: "Hanako Yamada", photo: "",
+    message: "楽しい時間を\n一緒に過ごせたら嬉しいです",
+    facts: [
+      ["生年月日","1996年 5月 5日"],
+      ["出身地","大阪府 大阪市"],
+      ["血液型","O型"],
+      ["趣味","ここに入ります"],
+      ["特技","ここに入ります"],
+      ["最近ハマっていること","ランニング"]
+    ],
+    videos: []
+  }
+};
+
+const camera = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>';
+const play = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const photo = (src,label) => src ? `<img src="${esc(src)}" alt="">` : `<div class="ph">${camera}<span>${label}</span></div>`;
+
+document.getElementById('heroImg').innerHTML = photo(DATA.heroPhoto, 'ふたりの写真<br>または似顔絵');
+
+function renderPerson(p){
+  const facts = p.facts.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  const vids = p.videos.length ? `<h2>Movie</h2><div class="videos">${p.videos.map(v => `
+      <div class="clip"><figure><div class="frame">${v.src ? `<video src="${esc(v.src)}" controls playsinline preload="metadata"></video>` : `<div class="ph">${play}<span>動画がここに入ります</span></div>`}</div>
+      <figcaption>${esc(v.caption)}</figcaption></figure></div>`).join('')}</div>` : '';
+  document.getElementById('profile').innerHTML = `
+    <div class="portrait">${photo(p.photo, p.role+'の写真')}</div>
+    <div class="role">${esc(p.role)}</div>
+    <h1 class="name">${esc(p.name)}</h1>
+    <div class="name-en">${esc(p.nameEn)}</div>
+    <p class="message">${esc(p.message).replace(/\n/g,'<br>')}</p>
+    <h2>Profile</h2><dl>${facts}</dl>
+    ${vids}
+    <p class="foot">Thank you for coming</p>`;
+}
+
+function show(){
+  const key = location.hash.slice(1);
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  if (key === 'groom' || key === 'bride'){
+    renderPerson(DATA[key]);
+    document.getElementById('person').classList.add('active');
+  } else {
+    document.getElementById('home').classList.add('active');
+  }
+  window.scrollTo(0,0);
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-go]'); if (!t) return;
+  const k = t.dataset.go;
+  location.hash = k === 'home' ? '' : k;
+  if (k === 'home') show();
+});
+window.addEventListener('hashchange', show);
+show();
+</script>
+</body>
+</html>
